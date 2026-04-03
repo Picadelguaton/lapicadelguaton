@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Picá del Guatón – Comida al Paso · Laguna Aculeo</title>
+<meta name="description" content="Comida rápida casera cerca de Laguna Aculeo, Paine. Local, carrito para eventos, banquetería y masas dulces a pedido. Pedidos por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--red:#C0392B;--dark-red:#8B1A0F;--cream:#F5F0E8;--dark:#1C1410;--mid:#3D2B1F;--text:#2C1A0E;--muted:#7A5C4A;--border:#E0D5C8;--orange:#E8651A;}
+body{font-family:'Nunito',sans-serif;background:#FBF8F3;color:var(--text);}
+.site{max-width:900px;margin:0 auto;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--dark);position:sticky;top:0;z-index:100;}
+.logo-text{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff;letter-spacing:1px;line-height:1;}
+.logo-text span{color:var(--orange);}
+.logo-sub{font-size:9px;color:#9A7A6A;letter-spacing:3px;text-transform:uppercase;margin-top:2px;}
+.nav-links{display:flex;gap:20px;align-items:center;}
+.nav-links a{font-size:13px;color:#B09080;cursor:pointer;text-decoration:none;letter-spacing:0.5px;font-weight:600;}
+.nav-links a:hover{color:#fff;}
+.nav-wa{background:#25D366;color:#fff;border:none;padding:8px 16px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;text-decoration:none;}
+
+/* HERO */
+.hero{background:var(--dark);display:grid;grid-template-columns:1fr 1fr;min-height:320px;}
+.hero-left{padding:40px 32px;display:flex;flex-direction:column;justify-content:center;}
+.hero-tag{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;margin-bottom:18px;width:fit-content;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:54px;color:#fff;line-height:1;margin-bottom:10px;letter-spacing:1px;}
+.hero h1 span{color:var(--orange);}
+.hero-sub{font-size:14px;color:#9A7A6A;line-height:1.7;margin-bottom:24px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-main{background:var(--red);color:#fff;border:none;padding:12px 24px;border-radius:7px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;text-decoration:none;display:inline-block;}
+.btn-main:hover{background:var(--dark-red);}
+.btn-ghost{background:transparent;color:#B09080;border:1px solid #4A3028;padding:12px 24px;border-radius:7px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;text-decoration:none;display:inline-block;}
+.btn-ghost:hover{border-color:#9A7A6A;color:#fff;}
+.hero-right{background:var(--mid);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:32px;gap:14px;}
+.hero-logo-circle{width:150px;height:150px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:70px;border:3px solid var(--red);overflow:hidden;}
+.hero-info{text-align:center;}
+.hero-info p{font-size:13px;color:#9A7A6A;line-height:1.8;}
+.hero-info strong{color:#D4B0A0;font-weight:700;}
+.badge-status{font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:7px;}
+.dot-status{width:8px;height:8px;border-radius:50%;}
+
+/* SECCIONES */
+.section{padding:44px 24px;}
+.section-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--dark);letter-spacing:1px;margin-bottom:24px;}
+
+/* SERVICIOS */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.svc-card{border:1.5px solid var(--border);border-radius:12px;background:#fff;overflow:hidden;}
+.svc-card-img{height:130px;overflow:hidden;background:var(--cream);}
+.svc-card-body{padding:16px 14px;}
+.svc-name{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:5px;}
+.svc-desc{font-size:12px;color:var(--muted);line-height:1.4;}
+.svc-pill{margin-top:10px;display:inline-block;background:#FFF0EE;color:var(--red);font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;}
+
+/* MENÚ */
+.menu-wrap{background:var(--cream);padding:44px 24px;}
+.menu-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;}
+.tab{padding:8px 18px;border-radius:20px;border:1.5px solid var(--border);background:#fff;font-size:13px;font-weight:700;cursor:pointer;color:var(--muted);font-family:'Nunito',sans-serif;}
+.tab:hover{border-color:var(--muted);}
+.tab.active{background:var(--red);color:#fff;border-color:var(--red);}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:14px;}
+.menu-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.menu-card-img{height:110px;overflow:hidden;background:var(--cream);position:relative;}
+.menu-card-img-inner{width:100%;height:100%;object-fit:cover;transition:transform 0.3s;}
+.menu-card:hover .menu-card-img-inner{transform:scale(1.05);}
+.menu-card-body{padding:12px 14px;}
+.menu-card-name{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:3px;}
+.menu-card-sub{font-size:11px;color:var(--muted);margin-bottom:12px;line-height:1.4;}
+.menu-card-row{display:flex;align-items:center;justify-content:space-between;}
+.menu-price{font-size:16px;font-weight:700;color:var(--red);}
+.add-btn{width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;border:none;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;flex-shrink:0;}
+.add-btn:hover{background:var(--dark-red);}
+
+/* CARRITO FLOTANTE */
+.cart-float{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;border-radius:12px;padding:14px 24px;justify-content:space-between;align-items:center;cursor:pointer;z-index:50;border:1px solid var(--red);min-width:320px;max-width:calc(100vw - 40px);box-shadow:0 4px 20px rgba(0,0,0,0.4);}
+.cart-float.visible{display:flex;}
+.cart-float-l{font-size:14px;font-weight:700;}
+.cart-float-l span{color:var(--orange);}
+.cart-float-r{background:var(--red);color:#fff;padding:8px 18px;border-radius:7px;font-size:13px;font-weight:700;}
+
+/* EVENTOS */
+.eventos-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.ev-card{border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden;}
+.ev-img{height:130px;overflow:hidden;background:var(--cream);}
+.ev-body{padding:16px;}
+.ev-icon{font-size:24px;margin-bottom:8px;display:block;}
+.ev-name{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.ev-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:14px;}
+.ev-btn{font-size:13px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:0;font-family:'Nunito',sans-serif;}
+.ev-btn:hover{text-decoration:underline;}
+
+/* MODAL GENERAL */
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:500;align-items:center;justify-content:center;padding:20px;}
+.modal-backdrop.open{display:flex;}
+.modal{background:#fff;border-radius:18px;width:100%;max-width:500px;max-height:92vh;overflow-y:auto;}
+.modal-header{background:var(--dark);padding:22px 26px;border-radius:18px 18px 0 0;display:flex;justify-content:space-between;align-items:flex-start;}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#fff;letter-spacing:1px;line-height:1.1;}
+.modal-sub{font-size:11px;color:#9A7A6A;margin-top:4px;}
+.modal-close{background:none;border:none;color:#9A7A6A;font-size:24px;cursor:pointer;line-height:1;padding:0;}
+.modal-close:hover{color:#fff;}
+.modal-body{padding:24px 26px;}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:5px;letter-spacing:0.5px;text-transform:uppercase;}
+.field input,.field select,.field textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:'Nunito',sans-serif;color:var(--text);background:#fff;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red);outline:none;}
+.field textarea{resize:vertical;min-height:70px;}
+.modal-footer{padding:4px 26px 26px;display:flex;gap:10px;}
+.modal-send{flex:1;background:#25D366;color:#fff;border:none;border-radius:9px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.modal-send:hover{background:#1EB85A;}
+.modal-cancel{background:none;border:1.5px solid var(--border);border-radius:9px;padding:13px 18px;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;}
+.modal-cancel:hover{border-color:var(--muted);}
+
+/* TOGGLE RETIRO / DELIVERY */
+.toggle-row{display:flex;gap:0;border:1.5px solid var(--border);border-radius:9px;overflow:hidden;margin-bottom:14px;}
+.toggle-opt{flex:1;padding:10px;text-align:center;font-size:13px;font-weight:700;cursor:pointer;color:var(--muted);background:#fff;border:none;font-family:'Nunito',sans-serif;transition:all 0.15s;}
+.toggle-opt.active{background:var(--red);color:#fff;}
+.delivery-block{background:#FFF5F3;border:1.5px solid #F5C0B8;border-radius:10px;padding:14px;margin-bottom:14px;}
+.delivery-cost-box{background:var(--dark);color:#fff;border-radius:8px;padding:12px 16px;margin-top:10px;display:flex;justify-content:space-between;align-items:center;}
+.delivery-cost-box .lbl{font-size:12px;color:#9A7A6A;}
+.delivery-cost-box .amt{font-size:20px;font-weight:700;color:var(--orange);}
+.delivery-block.hidden,.time-block{display:none;}
+.time-block.visible{display:block;}
+
+/* RESUMEN PEDIDO */
+.order-summary{background:var(--cream);border-radius:10px;padding:14px;margin-bottom:16px;}
+.order-summary-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:10px;}
+.order-item{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;border-bottom:0.5px solid var(--border);}
+.order-item:last-child{border:none;}
+.order-total{display:flex;justify-content:space-between;font-size:15px;font-weight:700;color:var(--dark);margin-top:10px;padding-top:10px;border-top:1.5px solid var(--border);}
+.order-total-red{color:var(--red);}
+
+/* CONTACTO */
+.contact-wrap{background:var(--dark);padding:44px 24px;}
+.contact-wrap .section-title{color:#fff;}
+.contact-wrap .section-eyebrow{color:#6A4A3A;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.contact-detail p{font-size:14px;color:#9A7A6A;line-height:2;}
+.contact-detail strong{color:#D4B0A0;font-weight:700;}
+.wa-btn-big{display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;border:none;border-radius:9px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;margin-top:18px;width:100%;font-family:'Nunito',sans-serif;text-decoration:none;}
+.wa-btn-big:hover{background:#1EB85A;}
+.ch-list{display:flex;flex-direction:column;gap:9px;margin-top:14px;}
+.ch-item{display:flex;align-items:center;gap:12px;padding:10px 16px;border:0.5px solid #3D2B1F;border-radius:9px;font-size:13px;color:#B09080;cursor:pointer;background:#2A1A10;text-decoration:none;}
+.ch-item:hover{border-color:#6A4A3A;}
+.cform{display:flex;flex-direction:column;gap:11px;}
+.cform input,.cform select,.cform textarea{width:100%;padding:11px 14px;background:#2A1A10;border:0.5px solid #4A3028;border-radius:9px;color:#E0C8B8;font-size:13px;font-family:'Nunito',sans-serif;}
+.cform textarea{resize:vertical;min-height:80px;}
+.cform input::placeholder,.cform textarea::placeholder{color:#6A4A3A;}
+.cform button{background:var(--red);color:#fff;border:none;padding:13px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.cform button:hover{background:var(--dark-red);}
+
+/* FOOTER */
+.footer{background:#0E0905;padding:24px;text-align:center;border-top:1px solid #2A1A10;}
+.footer p{font-size:12px;color:#4A3028;}
+.footer span{color:var(--red);}
+
+/* TOAST */
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:11px 22px;border-radius:22px;font-size:13px;font-weight:600;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:300;white-space:nowrap;border:1px solid var(--red);}
+.toast.show{opacity:1;}
+
+@media(max-width:640px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .svc-grid{grid-template-columns:1fr;}
+  .eventos-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .nav-links a:not(.nav-wa){display:none;}
+  .hero h1{font-size:40px;}
+  .hero-left{padding:28px 20px;}
+  .section,.menu-wrap,.contact-wrap{padding:32px 16px;}
+  .cart-float{min-width:280px;}
+}
+</style>
+</head>
+<body>
+<div class="site">
+
+<!-- NAV -->
+<nav class="nav">
+  <div>
+    <div class="logo-text">La Picá del <span>Guatón</span></div>
+    <div class="logo-sub">Comida al paso · Aculeo</div>
+  </div>
+  <div class="nav-links">
+    <a href="#menu-sec">Menú</a>
+    <a href="#eventos-sec">Eventos</a>
+    <a href="#contacto-sec">Contacto</a>
+    <a class="nav-wa" href="https://wa.me/56946885304?text=Hola%20Tatiana!%20Te%20escribo%20desde%20tu%20p%C3%A1gina%20web." target="_blank">💬 WhatsApp</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">📍 Laguna Aculeo, Paine</div>
+    <h1>Comida <span>Rica</span><br>al Paso</h1>
+    <p class="hero-sub">Recetas caseras, precios justos y sabor de verdad.<br>Local, carrito para eventos y banquetería a pedido.</p>
+    <div class="hero-btns">
+      <a class="btn-main" href="#menu-sec">Ver menú</a>
+      <a class="btn-ghost" href="#eventos-sec">Servicios para eventos</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-logo-circle">🍔</div>
+    <div class="hero-info">
+      <div class="badge-status" id="status-badge">
+        <div class="dot-status" id="status-dot"></div>
+        <span id="status-text">Cargando...</span>
+      </div>
+      <p style="margin-top:12px;"><strong>Miércoles a domingo</strong><br>17:00 – 00:00 hrs</p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<div class="section">
+  <div class="section-eyebrow">Todo lo que ofrecemos</div>
+  <div class="section-title">Tres formas de disfrutar</div>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-card-img">
+        <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&h=260&fit=crop&auto=format" alt="Carrito de comida para eventos" loading="lazy">
+      </div>
+      <div class="svc-card-body">
+        <div class="svc-name">🚚 Carrito para eventos</div>
+        <div class="svc-desc">Llevamos la pica directamente a tu evento. Perfecto para cumpleaños, matrimonios y más.</div>
+        <span class="svc-pill">Cotización</span>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-card-img">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=260&fit=crop&auto=format" alt="Banquetería catering" loading="lazy">
+      </div>
+      <div class="svc-card-body">
+        <div class="svc-name">🍽️ Banquetería</div>
+        <div class="svc-desc">Comida casera para eventos formales e informales. Todo hecho en casa con cariño.</div>
+        <span class="svc-pill">A pedido</span>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-card-img">
+        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&h=260&fit=crop&auto=format" alt="Aperitivos y masas dulces" loading="lazy">
+      </div>
+      <div class="svc-card-body">
+        <div class="svc-name">🥐 Cóctel y masas</div>
+        <div class="svc-desc">Aperitivos y masas dulces o saladas artesanales para cócteles y celebraciones.</div>
+        <span class="svc-pill">A pedido</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MENÚ -->
+<div class="menu-wrap" id="menu-sec">
+  <div class="section-eyebrow">El local · Comida al paso</div>
+  <div class="section-title">Nuestro Menú</div>
+  <div class="menu-tabs">
+    <div class="tab active" onclick="setTab(this,'todo')">Todo</div>
+    <div class="tab" onclick="setTab(this,'completos')">Completos</div>
+    <div class="tab" onclick="setTab(this,'churrascos')">Churrascos</div>
+    <div class="tab" onclick="setTab(this,'papas')">Papas y más</div>
+    <div class="tab" onclick="setTab(this,'bebidas')">Bebidas</div>
+  </div>
+  <div class="menu-grid" id="menu-grid"></div>
+</div>
+
+<!-- CARRITO FLOTANTE -->
+<div class="cart-float" id="cart-float" onclick="openOrderModal()">
+  <div class="cart-float-l">🛒 <span id="cart-count">0</span> productos · <span id="cart-subtotal">$0</span></div>
+  <div class="cart-float-r">Programar pedido →</div>
+</div>
+
+<!-- EVENTOS -->
+<div class="section" id="eventos-sec">
+  <div class="section-eyebrow">Más servicios</div>
+  <div class="section-title">Para tus eventos</div>
+  <div class="eventos-grid">
+    <div class="ev-card">
+      <div class="ev-img">
+        <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=500&h=260&fit=crop&auto=format" alt="Carrito de comida" loading="lazy">
+      </div>
+      <div class="ev-body">
+        <span class="ev-icon">🚚</span>
+        <div class="ev-name">Carrito para eventos</div>
+        <div class="ev-desc">Te llevamos la pica a tu cumpleaños, matrimonio o evento. Mínimo 30 personas.</div>
+        <button class="ev-btn" onclick="openModal('carrito')">Solicitar cotización →</button>
+      </div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-img">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&h=260&fit=crop&auto=format" alt="Banquetería" loading="lazy">
+      </div>
+      <div class="ev-body">
+        <span class="ev-icon">🍽️</span>
+        <div class="ev-name">Banquetería casera</div>
+        <div class="ev-desc">Menús caseros para eventos. Puedes elegir solo comida, con meseros, o paquete completo.</div>
+        <button class="ev-btn" onclick="openModal('banqueteria')">Solicitar cotización →</button>
+      </div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-img">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&h=260&fit=crop&auto=format" alt="Cóctel y masas dulces" loading="lazy">
+      </div>
+      <div class="ev-body">
+        <span class="ev-icon">🥐</span>
+        <div class="ev-name">Cóctel y masas</div>
+        <div class="ev-desc">Aperitivos y masas dulces o saladas artesanales. Pedidos con al menos 5 días de anticipación.</div>
+        <button class="ev-btn" onclick="openModal('coctel')">Solicitar cotización →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACTO -->
+<div class="contact-wrap" id="contacto-sec">
+  <div class="section-eyebrow">Encuéntranos</div>
+  <div class="section-title">Contacto</div>
+  <div class="contact-grid">
+    <div class="contact-detail">
+      <p>
+        <strong>Dirección</strong><br>
+        Sitio 27, Camino Laguna de Aculeo<br>
+        Pintué, Paine · Región Metropolitana<br><br>
+        <strong>Horario del local</strong><br>
+        Miércoles a domingo<br>
+        17:00 – 00:00 hrs
+      </p>
+      <a class="wa-btn-big" href="https://wa.me/56946885304?text=Hola%20Tatiana!%20Te%20escribo%20desde%20tu%20p%C3%A1gina%20web." target="_blank">💬 Escribir por WhatsApp</a>
+      <div class="ch-list">
+        <a class="ch-item" href="https://www.instagram.com/la_picadel_guaton" target="_blank">📸 @la_picadel_guaton en Instagram</a>
+        <a class="ch-item" href="https://www.google.com/maps/search/?api=1&query=Sitio+27+Camino+laguna+de+Aculeo+Pintue+Paine+Region+Metropolitana" target="_blank">📍 Ver ubicación en Google Maps</a>
+      </div>
+    </div>
+    <div>
+      <div class="cform">
+        <input type="text" id="cf-nombre" placeholder="Tu nombre" />
+        <input type="text" id="cf-contacto" placeholder="Tu WhatsApp o correo" />
+        <select id="cf-servicio">
+          <option value="">¿En qué podemos ayudarte?</option>
+          <option>Pedido del local</option>
+          <option>Carrito para evento</option>
+          <option>Banquetería</option>
+          <option>Cóctel y masas</option>
+        </select>
+        <textarea id="cf-msg" placeholder="Cuéntanos más sobre lo que necesitas..."></textarea>
+        <button onclick="sendContactForm()">Enviar mensaje por WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>© 2025 La Picá del Guatón · Aculeo, Paine · Hecho con <span>♥</span> y mucha parrilla</p>
+</div>
+</div><!-- fin .site -->
+
+<!-- ==================== MODAL PROGRAMAR PEDIDO ==================== -->
+<div class="modal-backdrop" id="order-modal-backdrop" onclick="closeOrderModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Programar tu pedido</div>
+        <div class="modal-sub">Elige cómo y cuándo lo quieres recibir</div>
+      </div>
+      <button class="modal-close" onclick="document.getElementById('order-modal-backdrop').classList.remove('open');document.body.style.overflow=''">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Resumen -->
+      <div class="order-summary">
+        <div class="order-summary-title">Tu pedido</div>
+        <div id="order-items-list"></div>
+        <div class="order-total">
+          <span>Subtotal productos</span>
+          <span class="order-total-red" id="order-subtotal-display">$0</span>
+        </div>
+      </div>
+
+      <!-- Datos personales -->
+      <div class="field">
+        <label>Tu nombre</label>
+        <input type="text" id="ord-nombre" placeholder="Nombre completo">
+      </div>
+      <div class="field">
+        <label>Tu WhatsApp</label>
+        <input type="text" id="ord-tel" placeholder="+569 XXXX XXXX">
+      </div>
+
+      <!-- Retiro o Delivery -->
+      <div class="field">
+        <label>¿Cómo lo quieres?</label>
+        <div class="toggle-row">
+          <button class="toggle-opt active" id="btn-retiro" onclick="setMode('retiro')">🏠 Retiro en local</button>
+          <button class="toggle-opt" id="btn-delivery" onclick="setMode('delivery')">🚗 Delivery</button>
+        </div>
+      </div>
+
+      <!-- Bloque delivery -->
+      <div class="delivery-block hidden" id="delivery-block">
+        <div class="field" style="margin-bottom:10px;">
+          <label>Dirección de entrega</label>
+          <input type="text" id="ord-direccion" placeholder="Calle, número, referencia">
+        </div>
+        <div class="field" style="margin-bottom:10px;">
+          <label>¿En qué sector estás?</label>
+          <select id="ord-sector" onchange="updateDeliveryCost()">
+            <option value="">Selecciona tu sector...</option>
+            <option value="3000">Sector Pintué / Aculeo (menos de 5 km) — $3.000</option>
+            <option value="4500">Sector Champa / Rangue (5 a 10 km) — $4.500</option>
+            <option value="6000">Paine centro (10 a 15 km) — $6.000</option>
+            <option value="8000">Buin / Linderos (15 a 20 km) — $8.000</option>
+            <option value="0">Otro sector — consultar precio</option>
+          </select>
+        </div>
+        <div class="delivery-cost-box" id="delivery-cost-box" style="display:none;">
+          <div>
+            <div class="lbl">Costo de delivery</div>
+            <div style="font-size:11px;color:#6A4A3A;margin-top:2px;" id="delivery-sector-name"></div>
+          </div>
+          <div class="amt" id="delivery-cost-display">$0</div>
+        </div>
+        <div id="delivery-consultar" style="display:none;background:#3D2B1F;border-radius:8px;padding:10px 14px;font-size:12px;color:#D4B0A0;margin-top:10px;">
+          📞 Para tu sector, Tatiana te confirmará el costo por WhatsApp.
+        </div>
+      </div>
+
+      <!-- Hora -->
+      <div class="field">
+        <label>¿A qué hora lo quieres? <span style="color:var(--muted);font-weight:400;text-transform:none;">(local abre desde las 17:00)</span></label>
+        <select id="ord-hora">
+          <option value="">Selecciona una hora...</option>
+          <option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option>
+          <option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option>
+          <option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option>
+          <option>23:00</option><option>23:30</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Notas adicionales (opcional)</label>
+        <textarea id="ord-notas" placeholder="Sin cebolla, extra mayo, alergias, etc."></textarea>
+      </div>
+
+      <!-- Total final -->
+      <div style="background:var(--dark);border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-size:11px;color:#9A7A6A;margin-bottom:3px;">Total estimado</div>
+          <div style="font-size:22px;font-weight:700;color:var(--orange);" id="grand-total-display">$0</div>
+        </div>
+        <div style="font-size:11px;color:#6A4A3A;text-align:right;max-width:160px;line-height:1.4;">Productos + delivery si aplica</div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="modal-cancel" onclick="document.getElementById('order-modal-backdrop').classList.remove('open');document.body.style.overflow=''">Cancelar</button>
+      <button class="modal-send" onclick="sendOrderWhatsapp()">💬 Confirmar por WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MODAL EVENTOS ==================== -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="backdropClick(event)">
+  <div class="modal" id="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modal-title">Solicitar cotización</div>
+        <div class="modal-sub" id="modal-sub">Completa el formulario y te respondemos por WhatsApp</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <button class="modal-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="modal-send" onclick="sendCotizacion()">💬 Enviar por WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const WA='56946885304';
+
+/* ===== IMÁGENES POR CATEGORÍA ===== */
+const catImages={
+  completos:'https://images.unsplash.com/photo-1612392166886-ee8475b03af2?w=400&h=220&fit=crop&auto=format',
+  churrascos:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=220&fit=crop&auto=format',
+  papas:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400&h=220&fit=crop&auto=format',
+  chorrillana:'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=220&fit=crop&auto=format',
+  bebidas:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400&h=220&fit=crop&auto=format',
+  empanada:'https://images.unsplash.com/photo-1603533549217-95b22a05020c?w=400&h=220&fit=crop&auto=format',
+  sopaipilla:'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=220&fit=crop&auto=format',
+};
+
+/* ===== MENÚ ===== */
+const menuItems=[
+  /* COMPLETOS */
+  {cat:'completos',img:catImages.completos,name:'Completo Italiano',desc:'Palta, tomate y mayo',price:1700},
+  {cat:'completos',img:catImages.completos,name:'Completo Clásico',desc:'Con todo al gusto',price:1700},
+  {cat:'completos',img:catImages.completos,name:'Completo Dinámico',desc:'Con todo y extra salsas',price:2000},
+  /* CHURRASCOS LOMO */
+  {cat:'churrascos',img:catImages.churrascos,name:'Ass Italiano (Lomo)',desc:'Palta, tomate y mayo',price:2500},
+  {cat:'churrascos',img:catImages.churrascos,name:'Ass Luco (Lomo)',desc:'Con queso derretido',price:2500},
+  {cat:'churrascos',img:catImages.churrascos,name:'Churrasco Italiano (Lomo)',desc:'Clásico italiano',price:3800},
+  {cat:'churrascos',img:catImages.churrascos,name:'Churrasco Luco (Lomo)',desc:'Con queso',price:3800},
+  {cat:'churrascos',img:catImages.churrascos,name:'Churrasco Brasilero (Lomo)',desc:'Con toque tropical',price:4000},
+  {cat:'churrascos',img:catImages.churrascos,name:'Churrasco a lo Pobre',desc:'Con huevo, papas y cebolla',price:4500},
+  /* CHURRASCOS VACUNO */
+  {cat:'churrascos',img:catImages.churrascos,name:'Ass Italiano (Vacuno)',desc:'Palta, tomate y mayo',price:2500},
+  {cat:'churrascos',img:catImages.churrascos,name:'Ass Luco (Vacuno)',desc:'Con queso derretido',price:2500},
+  {cat:'churrascos',img:catImages.churrascos,name:'Churrasco Italiano (Vacuno)',desc:'Clásico italiano',price:3800},
+  {cat:'churrascos',img:catImages.churrascos,name:'Churrasco Luco (Vacuno)',desc:'Con queso',price:3800},
+  {cat:'churrascos',img:catImages.churrascos,name:'Churrasco Brasilero (Vacuno)',desc:'Con toque tropical',price:4000},
+  /* PAPAS Y MÁS (incluye chorrillanas y sopaipillas) */
+  {cat:'papas',img:catImages.papas,name:'Papas Fritas Chica',desc:'Crujientes y recién hechas',price:2000},
+  {cat:'papas',img:catImages.papas,name:'Papas Fritas Mediana',desc:'Para compartir',price:3500},
+  {cat:'papas',img:catImages.papas,name:'Papas Fritas Familiar',desc:'Porción generosa',price:5000},
+  {cat:'papas',img:catImages.papas,name:'Salchipapas Chica',desc:'Papas con vienesas',price:3000},
+  {cat:'papas',img:catImages.papas,name:'Salchipapas Mediana',desc:'Porción mediana',price:4500},
+  {cat:'papas',img:catImages.chorrillana,name:'Chorrillana Chica (Lomo)',desc:'Papas, cebolla, vienesa y huevo',price:7000},
+  {cat:'papas',img:catImages.chorrillana,name:'Chorrillana Familiar (Lomo)',desc:'Para toda la familia',price:12000},
+  {cat:'papas',img:catImages.chorrillana,name:'Chorrillana Chica (Vacuno)',desc:'Papas, cebolla, vienesa y huevo',price:7000},
+  {cat:'papas',img:catImages.chorrillana,name:'Chorrillana Familiar (Vacuno)',desc:'Para toda la familia',price:12000},
+  {cat:'papas',img:catImages.empanada,name:'Empanada de Queso',desc:'Hecha en casa',price:1500},
+  {cat:'papas',img:catImages.sopaipilla,name:'Sopaipillas',desc:'Recién fritas (precio unitario)',price:333},
+  /* BEBIDAS */
+  {cat:'bebidas',img:catImages.bebidas,name:'Bebida Express',desc:'Vaso helado',price:1000},
+  {cat:'bebidas',img:catImages.bebidas,name:'Lata',desc:'Coca-cola, Sprite u otra',price:1500},
+  {cat:'bebidas',img:catImages.bebidas,name:'Botella 1,25L',desc:'Para la mesa',price:2500},
+  {cat:'bebidas',img:catImages.bebidas,name:'Agua Mineral',desc:'Fría',price:1000},
+];
+
+let cart=[];
+let activeTab='todo';
+
+function renderMenu(){
+  const grid=document.getElementById('menu-grid');
+  const items=activeTab==='todo'?menuItems:menuItems.filter(i=>i.cat===activeTab);
+  grid.innerHTML=items.map(item=>`
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img class="menu-card-img-inner" src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:32px;\'>${item.cat==='completos'?'🌭':item.cat==='churrascos'?'🥩':item.cat==='papas'?'🍟':'🥤'}</div>'">
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-card-name">${item.name}</div>
+        <div class="menu-card-sub">${item.desc}</div>
+        <div class="menu-card-row">
+          <span class="menu-price">$${item.price.toLocaleString('es-CL')}</span>
+          <button class="add-btn" onclick="addItem('${item.name.replace(/'/g,"\\'")}',${item.price})">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function setTab(el,cat){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');activeTab=cat;renderMenu();
+}
+
+function addItem(name,price){
+  const ex=cart.find(i=>i.name===name);
+  if(ex)ex.qty++;else cart.push({name,price,qty:1});
+  updateCart();toast(name+' agregado ✓');
+}
+
+function updateCart(){
+  const count=cart.reduce((s,i)=>s+i.qty,0);
+  const subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cart-count').textContent=count;
+  document.getElementById('cart-subtotal').textContent='$'+subtotal.toLocaleString('es-CL');
+  const f=document.getElementById('cart-float');
+  count>0?f.classList.add('visible'):f.classList.remove('visible');
+}
+
+/* ===== MODAL PROGRAMAR PEDIDO ===== */
+let deliveryMode='retiro';
+let deliveryCost=0;
+
+function openOrderModal(){
+  if(!cart.length)return;
+  const subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('order-items-list').innerHTML=
+    cart.map(i=>`<div class="order-item"><span>${i.qty}x ${i.name}</span><span>$${(i.price*i.qty).toLocaleString('es-CL')}</span></div>`).join('');
+  document.getElementById('order-subtotal-display').textContent='$'+subtotal.toLocaleString('es-CL');
+  updateGrandTotal();
+  setMode('retiro');
+  document.getElementById('order-modal-backdrop').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeOrderModal(e){
+  if(e.target===document.getElementById('order-modal-backdrop')){
+    document.getElementById('order-modal-backdrop').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+
+function setMode(mode){
+  deliveryMode=mode;
+  document.getElementById('btn-retiro').classList.toggle('active',mode==='retiro');
+  document.getElementById('btn-delivery').classList.toggle('active',mode==='delivery');
+  const db=document.getElementById('delivery-block');
+  if(mode==='delivery')db.classList.remove('hidden');else db.classList.add('hidden');
+  if(mode==='retiro'){deliveryCost=0;updateGrandTotal();}
+}
+
+function updateDeliveryCost(){
+  const sel=document.getElementById('ord-sector');
+  const val=parseInt(sel.value);
+  const sectorName=sel.options[sel.selectedIndex]?.text||'';
+  const box=document.getElementById('delivery-cost-box');
+  const consultar=document.getElementById('delivery-consultar');
+  if(!sel.value){box.style.display='none';consultar.style.display='none';deliveryCost=0;}
+  else if(val===0){box.style.display='none';consultar.style.display='block';deliveryCost=0;}
+  else{
+    box.style.display='flex';consultar.style.display='none';
+    deliveryCost=val;
+    document.getElementById('delivery-cost-display').textContent='$'+val.toLocaleString('es-CL');
+    document.getElementById('delivery-sector-name').textContent=sectorName.split('—')[0].trim();
+  }
+  updateGrandTotal();
+}
+
+function updateGrandTotal(){
+  const subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const total=subtotal+deliveryCost;
+  document.getElementById('grand-total-display').textContent='$'+total.toLocaleString('es-CL');
+}
+
+function sendOrderWhatsapp(){
+  const nombre=document.getElementById('ord-nombre').value||'(sin nombre)';
+  const tel=document.getElementById('ord-tel').value||'';
+  const hora=document.getElementById('ord-hora').value||'a confirmar';
+  const notas=document.getElementById('ord-notas').value||'';
+  const dir=document.getElementById('ord-direccion')?.value||'';
+  const sector=document.getElementById('ord-sector')?.options[document.getElementById('ord-sector')?.selectedIndex]?.text||'';
+  const subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const total=subtotal+deliveryCost;
+
+  let msg=`Hola Tatiana! 🍔 *Nuevo pedido desde la web:*\n\n`;
+  msg+=`📋 *PEDIDO:*\n`;
+  cart.forEach(i=>{msg+=`• ${i.qty}x ${i.name} — $${(i.price*i.qty).toLocaleString('es-CL')}\n`;});
+  msg+=`\n💰 Subtotal: $${subtotal.toLocaleString('es-CL')}`;
+  if(deliveryMode==='delivery'&&deliveryCost>0)msg+=`\n🚗 Delivery: $${deliveryCost.toLocaleString('es-CL')}`;
+  if(deliveryMode==='delivery'&&deliveryCost===0&&sector)msg+=`\n🚗 Delivery: a confirmar precio`;
+  msg+=`\n💵 *TOTAL: $${total.toLocaleString('es-CL')}*\n`;
+  msg+=`\n👤 Nombre: ${nombre}`;
+  if(tel)msg+=`\n📱 WhatsApp: ${tel}`;
+  msg+=`\n🕐 Hora: ${hora}`;
+  msg+=`\n📍 Modalidad: ${deliveryMode==='retiro'?'Retiro en local':'Delivery'}`;
+  if(deliveryMode==='delivery'&&dir)msg+=`\n🏠 Dirección: ${dir}`;
+  if(deliveryMode==='delivery'&&sector)msg+=`\n📌 Sector: ${sector.split('—')[0].trim()}`;
+  if(notas)msg+=`\n📝 Notas: ${notas}`;
+  msg+=`\n\n¿Confirmas disponibilidad?`;
+
+  document.getElementById('order-modal-backdrop').classList.remove('open');
+  document.body.style.overflow='';
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+/* ===== MODALES COTIZACIÓN EVENTOS ===== */
+let currentModal=null;
+const modalConfig={
+  carrito:{
+    title:'Carrito para eventos',sub:'Cuéntanos sobre tu evento y te cotizamos',
+    fields:[
+      {id:'nombre',label:'Tu nombre',type:'input',ph:'Nombre completo'},
+      {id:'contacto',label:'Tu WhatsApp',type:'input',ph:'+569 XXXX XXXX'},
+      {id:'fecha',label:'Fecha del evento',type:'input',ph:'Ej: 15 de mayo 2025'},
+      {id:'personas',label:'Número de personas',type:'select',opts:['30 a 50 personas','50 a 100 personas','100 a 200 personas','Más de 200 personas']},
+      {id:'lugar',label:'Lugar del evento',type:'input',ph:'Dirección o sector'},
+      {id:'tipo',label:'Tipo de evento',type:'select',opts:['Cumpleaños','Matrimonio','Graduación','Evento corporativo','Otro']},
+      {id:'horario',label:'Horario aproximado',type:'input',ph:'Ej: 19:00 a 23:00'},
+      {id:'notas',label:'Algo más que quieras contarnos',type:'textarea',ph:'Requerimientos especiales, alergias, etc.'},
+    ]
+  },
+  banqueteria:{
+    title:'Banquetería casera',sub:'Todo hecho en casa, con cariño y sabor real',
+    fields:[
+      {id:'nombre',label:'Tu nombre',type:'input',ph:'Nombre completo'},
+      {id:'contacto',label:'Tu WhatsApp',type:'input',ph:'+569 XXXX XXXX'},
+      {id:'fecha',label:'Fecha del evento',type:'input',ph:'Ej: 15 de mayo 2025'},
+      {id:'personas',label:'Número de personas',type:'select',opts:['Hasta 20 personas','20 a 50 personas','50 a 100 personas','Más de 100 personas']},
+      {id:'tipo',label:'Tipo de evento',type:'select',opts:['Reunión familiar','Evento corporativo','Matrimonio','Cumpleaños','Otro']},
+      {id:'servicio',label:'¿Qué servicio necesitas?',type:'select',opts:['Solo comida (tú te encargas del resto)','Comida + meseros de servicio','Paquete completo (comida, meseros y lugar)']},
+      {id:'menu',label:'Preferencia de menú',type:'select',opts:['Déjalo a criterio de Tatiana','Quiero opciones para elegir','Ya tengo un menú en mente']},
+      {id:'lugar',label:'Lugar del evento',type:'input',ph:'Dirección o sector (si es paquete completo, indicar que incluye lugar)'},
+      {id:'notas',label:'Información adicional',type:'textarea',ph:'Alergias, restricciones, presupuesto aproximado...'},
+    ]
+  },
+  coctel:{
+    title:'Cóctel y masas',sub:'Aperitivos y masas artesanales, dulces o saladas',
+    fields:[
+      {id:'nombre',label:'Tu nombre',type:'input',ph:'Nombre completo'},
+      {id:'contacto',label:'Tu WhatsApp',type:'input',ph:'+569 XXXX XXXX'},
+      {id:'fecha',label:'Fecha del evento o entrega',type:'input',ph:'Ej: 15 de mayo 2025'},
+      {id:'tipo_servicio',label:'¿Qué necesitas?',type:'select',opts:['Cóctel de aperitivo para evento','Masas dulces a pedido','Masas saladas a pedido','Cóctel + masas (dulces y/o saladas)']},
+      {id:'personas',label:'Número de personas',type:'select',opts:['Hasta 10 personas','10 a 25 personas','25 a 50 personas','Más de 50 personas']},
+      {id:'tipo_masas',label:'Tipo de masas (si aplica)',type:'select',opts:['Solo dulces (alfajores, tartas, galletas…)','Solo saladas (bocaditos, sandwichitos…)','Mixto: dulces y saladas','Sin preferencia / Sorpréndeme']},
+      {id:'entrega',label:'¿Cómo lo necesitas?',type:'select',opts:['Servicio en el evento','Entrega lista para servir','No sé aún']},
+      {id:'ocasion',label:'Ocasión',type:'select',opts:['Cumpleaños','Matrimonio','Evento corporativo','Regalo','Consumo personal','Otro']},
+      {id:'notas',label:'Detalles adicionales',type:'textarea',ph:'Sabores específicos, alergias, decoración, presupuesto...'},
+    ]
+  }
+};
+
+function openModal(tipo){
+  currentModal=tipo;
+  const cfg=modalConfig[tipo];
+  document.getElementById('modal-title').textContent=cfg.title;
+  document.getElementById('modal-sub').textContent=cfg.sub;
+  document.getElementById('modal-body').innerHTML=cfg.fields.map(f=>{
+    let inp='';
+    if(f.type==='input')inp=`<input type="text" id="mf-${f.id}" placeholder="${f.ph||''}">`;
+    else if(f.type==='select')inp=`<select id="mf-${f.id}"><option value="">Selecciona...</option>${f.opts.map(o=>`<option>${o}</option>`).join('')}</select>`;
+    else inp=`<textarea id="mf-${f.id}" placeholder="${f.ph||''}"></textarea>`;
+    return `<div class="field"><label>${f.label}</label>${inp}</div>`;
+  }).join('');
+  document.getElementById('modal-backdrop').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+  document.getElementById('modal-backdrop').classList.remove('open');
+  document.body.style.overflow='';
+  currentModal=null;
+}
+
+function backdropClick(e){
+  if(e.target===document.getElementById('modal-backdrop'))closeModal();
+}
+
+function sendCotizacion(){
+  if(!currentModal)return;
+  const cfg=modalConfig[currentModal];
+  let msg=`Hola Tatiana! 👋 Quiero cotizar: *${cfg.title}*\n\n`;
+  cfg.fields.forEach(f=>{
+    const el=document.getElementById('mf-'+f.id);
+    if(el&&el.value&&el.value.trim())msg+=`• *${f.label}:* ${el.value.trim()}\n`;
+  });
+  msg+='\n¿Me puedes dar más información y el precio?';
+  closeModal();
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+/* ===== CONTACTO ===== */
+function sendContactForm(){
+  const n=document.getElementById('cf-nombre').value||'(sin nombre)';
+  const c=document.getElementById('cf-contacto').value||'';
+  const s=document.getElementById('cf-servicio').value||'Consulta general';
+  const m=document.getElementById('cf-msg').value||'';
+  const msg=`Hola Tatiana! 👋 Me contacto desde tu página web.\n\nNombre: ${n}${c?'\nContacto: '+c:''}\nServicio: ${s}${m?'\n\nDetalle: '+m:''}`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+/* ===== STATUS ===== */
+function checkStatus(){
+  const now=new Date();
+  const day=now.getDay();
+  const h=now.getHours();
+  const isDay=(day>=3&&day<=6)||day===0;
+  const isHour=(h>=17)||(h===0);
+  const isOpen=isDay&&isHour;
+  const badge=document.getElementById('status-badge');
+  const dot=document.getElementById('status-dot');
+  const txt=document.getElementById('status-text');
+  if(isOpen){
+    txt.textContent='Abierto ahora';
+    badge.style.cssText='background:rgba(46,160,67,0.2);color:#4AE060;font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:7px;';
+    dot.style.background='#4AE060';
+  }else{
+    txt.textContent='Cerrado · Mié-Dom 17:00';
+    badge.style.cssText='background:rgba(192,57,43,0.2);color:#f1948a;font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:7px;';
+    dot.style.background='#f1948a';
+  }
+}
+
+/* ===== TOAST ===== */
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2200);
+}
+
+checkStatus();
+renderMenu();
+</script>
+</body>
+</html>
